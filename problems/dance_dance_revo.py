@@ -24,8 +24,8 @@ PROBLEM_CONFIG = ScaffoldedWritingCFG.fromstring(f"""
     START -> "You decide to" MOVE
     MOVE -> MOVEMENT MOVEMENT | MOVEMENT DIRECTION | MOVEMENT DIRECTION DIRECTION | MOVEMENT DIRECTION MOVEMENT DIRECTION | MOVEMENT DIRECTION MOVEMENT DIRECTION MOVEMENT
     MOVEMENT -> "slide" | "jump" | "run" | "hokey pokey" | "criss cross" | EPSILON
-    DIRECTION -> "up" | "down" | "left" | "right" | EPSILON
-    EPSILON ->         
+    DIRECTION -> "up" | "down" | "left" | "right" | "away" | EPSILON
+    EPSILON ->
 """)
 
 def grade_statement(tokens: List[str]) -> Tuple[bool, Optional[str]]:
@@ -44,6 +44,9 @@ def grade_statement(tokens: List[str]) -> Tuple[bool, Optional[str]]:
         submission.does_path_exist("DIRECTION", "down"):
         return False, 'Your crush is not looking you up and down with this movement'
 
+    if submission.does_path_exist("MOVEMENT", "run") and \
+        submission.does_path_exist("DIRECTION", "away"):
+        return True, 'Yes, run from your crush and the dance. This is the only way.'
 
     return True, None
 
