@@ -22,7 +22,7 @@ statement = 'Assume you are at a middle school dance.' + ' You lock eyes with yo
 
 PROBLEM_CONFIG = ScaffoldedWritingCFG.fromstring(f"""
     START -> "You decide to" MOVE
-    MOVE -> MOVEMENT MOVEMENT | MOVEMENT DIRECTION | MOVEMENT DIRECTION DIRECTION | MOVEMENT DIRECTION MOVEMENT DIRECTION | MOVEMENT DIRECTION MOVEMENT DIRECTION MOVEMENT
+    MOVE ->  MOVEMENT DIRECTION
     MOVEMENT -> "slide" | "jump" | "run" | "hokey pokey" | "criss cross" | EPSILON
     DIRECTION -> "up" | "down" | "left" | "right" | "away" | EPSILON
     EPSILON ->
@@ -34,7 +34,6 @@ def grade_statement(tokens: List[str]) -> Tuple[bool, Optional[str]]:
     if submission.does_path_exist("MOVEMENT", "hokey pokey"):
         return False, 'If you do the hokey pokey and you turn yourself around' + \
             ' your crush will turn themselves around and go the other way.'
-    
 
     if submission.does_path_exist("MOVEMENT", "jump"):
         return False, 'Unfortunately, you do not have rhythm. Jumping off beat ' + \
@@ -46,7 +45,7 @@ def grade_statement(tokens: List[str]) -> Tuple[bool, Optional[str]]:
 
     if submission.does_path_exist("MOVEMENT", "run") and \
         submission.does_path_exist("DIRECTION", "away"):
-        return True, 'Yes, run from your crush and the dance. This is the only way.'
+        return True, 'Yes, run from your crush and the dance!'
 
     return True, None
 
