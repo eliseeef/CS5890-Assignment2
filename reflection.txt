@@ -1,0 +1,19 @@
+1. What were the benefits of using a context free grammar for your task domain?
+
+While this was specific to users who are dancing at a middle school, this could be beneficial for users
+who want to learn how to dance. The grammar could be used to define the specific steps for structured dance, like
+ballroom dancing or ballet, rather than freestyle in a middle school gym.
+
+2. What were the down sides or difficulties of using a context free grammar for your task domain?
+
+The downside to using a context free grammar for dancing, is not all dancing is structured. This does
+not allow users to dance freely. They are constrained.
+
+3. What were the benefits of using a constraint based grading for your task domain?
+
+It is easy to determine which dance moves are appropriate and inform the user what is okay.
+
+4. What were the down sides or difficulties of using a constraint based grading for your task domain?
+
+The down sides of using a constraint based grading for you task domain is there may be multiple
+dance moves to consider and multiple movements that may be valid.
